@@ -1,0 +1,59 @@
+/* /app/page.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Background for login page */
+.login-background {
+  @apply flex flex-col items-center justify-start min-h-screen bg-cover bg-center;
+  background-image: url('/wallpaper.jpg');
+}
+
+/* Title styles */
+.home-title {
+  @apply text-center mt-10 mb-6;
+}
+
+/* Title text style */
+.home-title h2 {
+  @apply text-3xl font-bold text-white mb-4;
+}
+
+/* Buttons section styles */
+.home-buttons {
+  @apply text-center space-x-4 mb-6;
+}
+
+.home-buttons button {
+  @apply px-6 py-3 rounded-full text-white font-semibold hover:opacity-90;
+}
+
+/* "Explore memberships" button styles */
+.btn-explore {
+  @apply bg-blue-600 hover:bg-blue-700;
+}
+
+/* "Train online" button styles */
+.btn-train {
+  @apply bg-green-600 hover:bg-green-700;
+}
+
+/* Navbar styles */
+.home-navbar {
+  @apply bg-blue-900 text-white p-4 w-full flex justify-between items-center;
+}
+
+/* Left side logo */
+.home-navbar .logo {
+  @apply text-2xl font-bold;
+}
+
+/* Navbar items, space them out */
+.home-navbar .nav-items {
+  @apply flex space-x-6;
+}
+
+/* Individual nav item */
+.home-navbar .nav-item {
+  @apply text-sm font-medium hover:text-blue-300 cursor-pointer;
+}

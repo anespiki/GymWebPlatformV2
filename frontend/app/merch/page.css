@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.login-background {
+  @apply flex flex-col items-center justify-start min-h-screen bg-cover bg-center;
+  background-image: url('/wallpaper.jpg');
+}
+
+.merch-container {
+  @apply flex justify-center gap-8 flex-wrap mt-12;
+}
+
+.merch-box {
+  @apply bg-white rounded-lg shadow-lg p-4 w-64 text-center;
+}
+
+.merch-image {
+  @apply w-full h-40 object-cover rounded-md mb-4;
+}
+
+.merch-details {
+  @apply text-center;
+}
+
+.merch-title {
+  @apply text-lg font-bold mb-2;
+}
+
+.merch-price {
+  @apply text-blue-600 font-semibold mb-4;
+}
+
+.merch-button {
+  @apply bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700;
+}
+
+.payment-form-container {
+  @apply bg-blue-900 p-8 rounded-lg shadow-lg max-w-md w-full mt-6 text-center;
+}
+
+.payment-input {
+  @apply w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 mb-4;
+}
+
+.btn-cancel {
+  @apply bg-gray-500 hover:bg-gray-600 text-white font-semibold py-2 px-4 rounded-md w-1/3;
+}
+
+.merch-button {
+  @apply bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-md w-1/3;
+}

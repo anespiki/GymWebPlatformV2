@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.signup-background {
+  @apply flex items-center justify-center min-h-screen bg-cover bg-center;
+  background-image: url('./wallpaper.jpg');
+}
+
+.signup-container {
+  @apply bg-blue-900 text-white p-8 rounded-lg shadow-lg max-w-md w-full;
+}
+
+.signup-title {
+  @apply text-center text-2xl font-bold mb-6;
+}
+
+.signup-input {
+  @apply w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400;
+}
+
+.signup-button {
+  @apply w-full bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400;
+}
+
+
+

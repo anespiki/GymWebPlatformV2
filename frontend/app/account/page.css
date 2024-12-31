@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Background for Account page */
+.account-background {
+  @apply flex flex-col items-center justify-start min-h-screen bg-cover bg-center;
+  background-image: url('/wallpaper.jpg');
+}
+
+/* Account Info Section */
+.account-info {
+  @apply w-full max-w-lg mx-auto mt-10 text-center text-white;
+}
+
+.account-info h2 {
+  @apply text-3xl font-bold mb-4;
+}
+
+.user-info {
+  @apply mb-4;
+}
+
+/* Edit Profile Inputs */
+.input-field {
+  @apply w-full mb-4 px-4 py-2 text-xl border border-gray-300 rounded-md bg-gray-100 text-black;
+}
+
+.account-buttons button {
+  @apply bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-md w-full mt-2;
+}
+
+.account-buttons .btn-save {
+  @apply bg-green-600 hover:bg-green-700;
+}
+
+.account-buttons .btn-logout {
+  @apply bg-red-600 hover:bg-red-700;
+}
+
+/* Subscription Plan Section (Premium) */
+.subscription-plan {
+  @apply w-full max-w-lg mx-auto mt-12 text-center text-white;
+}
+
+.subscription-plan h2 {
+  @apply text-3xl font-bold mb-4;
+}
+
+.subscription-plan .plan-details {
+  @apply mb-6;
+}
+
+.subscription-plan .btn-manage {
+  @apply bg-yellow-600 hover:bg-yellow-700 text-white font-semibold py-2 px-4 rounded-md w-full;
+}

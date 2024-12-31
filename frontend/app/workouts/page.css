@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Background for Workouts page */
+/*.workouts-background {
+  @apply flex flex-col items-center justify-start min-h-screen bg-cover bg-center;
+  background-color: black;
+}
+
+/* Workout Plan Section */
+.workout-plan {
+  @apply text-center px-4 py-6 text-white;
+}
+
+.workout-plan h2 {
+  @apply text-3xl font-bold mb-6;
+}
+
+/* Days section */
+.days {
+  @apply space-y-6;
+}
+
+.day {
+  @apply space-y-2 bg-blue-900 p-4 rounded-lg shadow-lg max-w-lg mx-auto;
+}
+
+.day h3 {
+  @apply text-xl font-semibold;
+}
+
+.day ul {
+  @apply list-disc pl-6;
+}
+
+/* Navbar styles */
+.home-navbar {
+  @apply bg-blue-900 text-white p-4 w-full flex justify-between items-center;
+}
+
+/* Left side logo */
+.home-navbar .logo {
+  @apply text-2xl font-bold;
+}
+
+/* Navbar items, space them out */
+.home-navbar .nav-items {
+  @apply flex space-x-6;
+}
+
+/* Individual nav item */
+.home-navbar .nav-item {
+  @apply text-sm font-medium hover:text-blue-300 cursor-pointer;
+}
