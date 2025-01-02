@@ -59,10 +59,31 @@ export default function MembershipsPage() {
   };
 
   // Handle form submission (Buy)
-  const handleBuy = () => {
+  const handleBuy = async () => {
     console.log('Payment details:', paymentDetails);
     // Simulate successful purchase and redirect to home page or do actual API call
-    alert('Purchase Successful!');
+
+    try {
+      // Make a POST request to the backend to add membership
+      const response = await axios.post('http://localhost:5001/api/memberships/add-membership', {
+        membership: selectedMembership
+      });
+
+      // If the request is successful, show alert saying that it was success
+      if (response.data.message === 'success') {
+        alert('Purchase Successful!');
+
+      } else {
+      // If the request have failed, show alert saying that it was fail
+
+        alert('Purchase Failed!');
+
+      }
+    } catch (err) {
+      console.error('Error during login:', err);
+      setError('An error occurred. Please try again.');
+    }
+
     setIsPaymentFormVisible(false); // Hide the payment form
   };
 
@@ -83,6 +104,8 @@ export default function MembershipsPage() {
       {/* Payment Form Section */}
       {isPaymentFormVisible && (
         <div className="payment-form-container">
+          <h2 className="text-2xl text-white mb-6">{selectedMembership?.title}</h2>
+
           <h2 className="text-2xl text-white mb-6">Enter Payment Details</h2>
           <form className="payment-form">
             <div className="mb-4">

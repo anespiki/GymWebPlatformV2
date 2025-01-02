@@ -54,3 +54,15 @@
 .subscription-plan .btn-manage {
   @apply bg-yellow-600 hover:bg-yellow-700 text-white font-semibold py-2 px-4 rounded-md w-full;
 }
+
+
+/* Add these styles to your CSS file */
+.btn-red {
+  background-color: red;
+  color: white;
+}
+
+.btn-green {
+  background-color: green;
+  color: white;
+}
