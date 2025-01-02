@@ -1,4 +1,4 @@
-let currentMembership = []
+let currentMembership = null
 
 
 //Dummy data of memberships 
