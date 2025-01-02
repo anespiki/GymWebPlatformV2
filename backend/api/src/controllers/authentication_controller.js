@@ -36,6 +36,20 @@ exports.login = async (req, res) => {
     }
 }
 
+//Register user using following informations: Full name, Email, Username, Password.
+
+exports.registerUser = async (req, res) => {
+    const { firstName, email, username, password } = req.body;
+
+    username = username;
+    password = password;
+
+    res.status(200).json({
+        message: "User has been registered succesufully"
+    });
+
+}
+
 
 
 //Method to get info about user
