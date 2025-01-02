@@ -3,9 +3,9 @@
 @tailwind utilities;
 
 /* Background for About page */
-/*.about-background {
+.about-background {
   @apply flex flex-col items-center justify-start min-h-screen bg-cover bg-center;
-  background-image: url('/wallpaper.jpg');
+  background: black;
 }
 
 /* About Page Content */

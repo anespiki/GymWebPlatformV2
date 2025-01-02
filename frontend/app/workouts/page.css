@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 /* Background for Workouts page */
-/*.workouts-background {
+.workouts-background {
   @apply flex flex-col items-center justify-start min-h-screen bg-cover bg-center;
   background-color: black;
 }
