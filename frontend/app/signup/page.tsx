@@ -3,13 +3,14 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import './page.css';
-import Link from 'next/link'; // For the "sign up here" link
+import Link from 'next/link';
+import { MdArrowBack } from 'react-icons/md';
+import axios from 'axios';
+
 
 export default function SignUpPage() {
-  // Router for navigation
   const router = useRouter();
 
-  // State variables for form input
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
   const [username, setUsername] = useState('');
@@ -17,34 +18,59 @@ export default function SignUpPage() {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [error, setError] = useState('');
 
-  // Handle sign-up form submission
-  const handleSignUp = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSignUp = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    // Validate passwords
     if (password !== confirmPassword) {
       setError('Passwords do not match');
       return;
     }
+    try {
+      // Make a POST request to the backend to register user
+      const response = await axios.post('http://localhost:5001/api/authentication/register', {
+        inputedFullName: fullName, inputedEmail: email, inputedUsername: username, inputedPassword: password
+      });
 
-    // Simulate storing user data (you can use localStorage or any other method)
-    localStorage.setItem('user', JSON.stringify({ fullName, email, username, password }));
+      // If the registration is successful, navigate to the login page
+      if (response.data.message === 'success') {
+        router.push('/');
+      } else {
+        //Print if there was some error. 
+        console.log("There was some error!");
+      }
+    } catch (err) {
+      console.error('Error during registration:', err);
+      setError('An error occurred. Please try again.');
+    }
 
-    // Redirect to the home page after successful sign-up
-    router.push('/home');
   };
 
   return (
     <div className="signup-background">
       <div className="signup-container">
-        <h1 className="signup-title">Sarajevo City Gym - Sign Up</h1>
+        {/* Back Button */}
+        <button
+          onClick={() => router.back()}
+          className="back-button"
+          aria-label="Go Back"
+        >
+          {/* Back Arrow Icon */}
+          <MdArrowBack />
+        </button>
+        <div className="heading-wrapper">
+          <h1 className="heading-title-large">Register Now!</h1>
+          <h5 className="heading-title-small">Sarajevo City Gym</h5>
+        </div>
+
         <form onSubmit={handleSignUp}>
+          {/* Form Inputs */}
           <div className="mb-4">
             <label htmlFor="fullName" className="block text-sm font-medium mb-2">Full Name</label>
             <input
               type="text"
               id="fullName"
-              className="signup-input"
+              className="w-full px-4 py-2 rounded-md border border-gray-300 text-black bg-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-400"
+
               placeholder="Enter your full name"
               value={fullName}
               onChange={(e) => setFullName(e.target.value)}
@@ -56,7 +82,8 @@ export default function SignUpPage() {
             <input
               type="email"
               id="email"
-              className="signup-input"
+              className="w-full px-4 py-2 rounded-md border border-gray-300 text-black bg-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-400"
+
               placeholder="Enter your email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -68,7 +95,8 @@ export default function SignUpPage() {
             <input
               type="text"
               id="username"
-              className="signup-input"
+              className="w-full px-4 py-2 rounded-md border border-gray-300 text-black bg-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-400"
+
               placeholder="Choose a username"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
@@ -80,7 +108,8 @@ export default function SignUpPage() {
             <input
               type="password"
               id="password"
-              className="signup-input"
+              className="w-full px-4 py-2 rounded-md border border-gray-300 text-black bg-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-400"
+
               placeholder="Enter your password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
@@ -92,7 +121,8 @@ export default function SignUpPage() {
             <input
               type="password"
               id="confirmPassword"
-              className="signup-input"
+              className="w-full px-4 py-2 rounded-md border border-gray-300 text-black bg-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-400"
+
               placeholder="Confirm your password"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
@@ -101,7 +131,6 @@ export default function SignUpPage() {
           </div>
           {error && <p className="text-red-500">{error}</p>}
           <button type="submit" className="signup-button">Sign Up</button>
-        
         </form>
       </div>
     </div>

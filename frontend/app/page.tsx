@@ -40,7 +40,7 @@ export default function LoginPage() {
   return (
     <div className="login-background">
       <div className="login-container">
-        <h1 className="login-title">Sarajevo City Gym</h1>
+        <h1 className="login-title" style={{ color: 'white' }}>Sarajevo City Gym</h1>
         <form onSubmit={handleLogin}>
           <div className="mb-4">
             <label htmlFor="username" className="block text-sm font-medium mb-2">
@@ -49,7 +49,7 @@ export default function LoginPage() {
             <input
               type="text"
               id="username"
-              className="login-input"
+              className="w-full px-4 py-2 rounded-md border border-gray-300 text-black bg-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-400"
               placeholder="Enter your username"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
@@ -62,8 +62,9 @@ export default function LoginPage() {
             </label>
             <input
               type="password"
-              id="password"
-              className="login-input"
+              className="w-full px-4 py-2 rounded-md border border-gray-300 text-black bg-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-400"
+
+          
               placeholder="Enter your password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
