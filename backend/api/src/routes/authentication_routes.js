@@ -9,6 +9,7 @@ const authneticationController = require('../controllers/authentication_controll
 
 
 //Api Routes
+router.post('/register', authneticationController.registerUser)
 router.post('/login', authneticationController.login);
 router.get('/return-user', authneticationController.returnUser);
 

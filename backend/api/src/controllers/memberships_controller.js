@@ -1,4 +1,8 @@
+let currentMembership = []
+
+
 //Dummy data of memberships 
+
 const memberships = [
     {
         'title': 'Basic Membership',
@@ -26,6 +30,56 @@ exports.returnMemberships = async (req, res) => {
             "memberships": memberships
         });
 
+    }
+    catch (e) {
+        console.error("There was error while returning Memberships" + e);
+    }
+}
+
+exports.addMembership = async (req, res) => {
+    //Recieving from frontent  membership that user added
+
+    try {
+        const { membership } = req.body;
+
+        // Adding the selected membership to currentMembership
+        currentMembership = membership;
+        res.status(200).json({
+            message: "success",
+        });
+    }
+    catch (e) {
+
+
+        console.error("Error while adding membership: ", e);
+        res.status(400).json({
+            message: "fail"
+        });
+
+
+
+    }
+
+}
+
+//Method to return user membership
+exports.returnUserMembership = async (req, res) => {
+    try {
+        res.status(200).json({
+            "userMembership": currentMembership
+        });
+    }
+    catch (e) {
+        console.error("There was error while returning Memberships" + e);
+    }
+}
+exports.cancelMembership = async (req, res) => {
+    try {
+
+        currentMembership = null;
+        res.status(200).json({
+            "userMembership": currentMembership
+        });
     }
     catch (e) {
         console.error("There was error while returning Memberships" + e);

@@ -1,11 +1,14 @@
-const username = "admin";
-const password = "admin";
+username = "admin";
+password = "admin";
+fullName = "Admin";
+email = "admin@citygym.com";
 
-
-//Dummy data for user info
-const user = [
+//Making User object 
+user = [
     {
-        'name': 'Admin',
+        'name': fullName,
+        'username': username,
+        'email': email,
         'height': '175cm',
         'weight': '75kg'
     }
@@ -39,14 +42,31 @@ exports.login = async (req, res) => {
 //Register user using following informations: Full name, Email, Username, Password.
 
 exports.registerUser = async (req, res) => {
-    const { firstName, email, username, password } = req.body;
+    const { inputedFullName, inputedEmail, inputedUsername, inputedPassword } = req.body;
+    try {
+        //Updating user object
+        user = [
+            {
+                'name': inputedFullName,
+                'username': inputedUsername,
+                'email': inputedEmail,
+                'height': '175cm',
+                'weight': '75kg'
+            }
+        ];
 
-    username = username;
-    password = password;
-
-    res.status(200).json({
-        message: "User has been registered succesufully"
-    });
+        //Updating username and password
+        username = inputedUsername
+        password = inputedPassword;
+        res.status(200).json({
+            message: "success"
+        });
+    }
+    catch (e) {
+        res.status(400).json({
+            message: "fail"
+        });
+    }
 
 }
 
@@ -54,16 +74,12 @@ exports.registerUser = async (req, res) => {
 
 //Method to get info about user
 exports.returnUser = async (req, res) => {
-
     try {
         res.status(200).json({
             'user': user
         });
-
     } catch (e) {
         console.error("There was error while returning infomrations about user" + e);
     }
-
-
 }
 
